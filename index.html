@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rootz V6 Dashboard</title>
+  <!-- Office.js for Word Add-in integration -->
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script type="module" crossorigin src="./assets/index-DP-RvSxd.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CRIMobjy.css">
+</head>
+<body>
+  <header id="header">
+    <div class="header-content">
+      <h1>Rootz V6</h1>
+      <div id="network-badge" class="badge">Loading...</div>
+      <div id="wallet-info">
+        <span id="wallet-address">Not connected</span>
+        <span id="wallet-source-badge" class="wallet-source-badge" title="Wallet security mode"></span>
+        <span id="wallet-balance"></span>
+        <span id="identity-address" class="identity-badge" title="Active Identity Contract"></span>
+        <span id="registry-credits" class="registry-credits" title="Registry credits balance">Credits: --</span>
+        <button id="buy-credits-btn" class="header-btn" title="Buy 100K credits">Buy Credits</button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="nav">
+    <button data-tab="home" class="active">Home</button>
+    <button data-tab="agents">Agents</button>
+    <button data-tab="secrets">Secrets</button>
+    <button data-tab="create">Create</button>
+    <button data-tab="archives">Archives</button>
+    <button data-tab="teams">Teams</button>
+    <button data-tab="identity">Identity</button>
+    <button data-tab="wallet">Wallet</button>
+    <button data-tab="gas">Gas</button>
+    <button data-tab="settings">Settings</button>
+    <button data-tab="diagnostics">Diagnostics</button>
+    <button data-tab="help" class="help-nav-btn">?</button>
+  </nav>
+
+  <main id="content">
+    <div id="loading">Initializing...</div>
+  </main>
+
+  <!-- Credit Purchase Modal -->
+  <div id="credit-modal" class="modal" style="display: none;">
+    <div class="modal-backdrop" onclick="document.getElementById('credit-modal').style.display='none'"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Purchase Credits</h2>
+        <button class="modal-close" onclick="document.getElementById('credit-modal').style.display='none'">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="credit-modal-loading">Loading available tokens...</div>
+        <div id="credit-modal-tokens" style="display: none;">
+          <div class="token-selector">
+            <label>Pay with:</label>
+            <select id="credit-token-select">
+              <option value="POL">POL (Native)</option>
+            </select>
+          </div>
+          <div class="token-info" id="credit-token-info">
+            <div class="token-rate">Rate: <span id="token-rate">--</span> credits per token</div>
+            <div class="token-bonus">Bonus: <span id="token-bonus">0%</span></div>
+          </div>
+          <div class="amount-input">
+            <label>Amount:</label>
+            <input type="number" id="credit-amount" value="0.1" step="0.01" min="0.01" />
+            <span id="credit-amount-symbol">POL</span>
+          </div>
+          <div class="preview-box" id="credit-preview">
+            <div class="preview-row">
+              <span>Base credits:</span>
+              <span id="preview-base">--</span>
+            </div>
+            <div class="preview-row bonus">
+              <span>Bonus credits:</span>
+              <span id="preview-bonus">--</span>
+            </div>
+            <div class="preview-row total">
+              <span>Total credits:</span>
+              <span id="preview-total">--</span>
+            </div>
+          </div>
+          <button id="credit-purchase-btn" class="primary full-width">Purchase Credits</button>
+          <div id="credit-purchase-status" class="status-message"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

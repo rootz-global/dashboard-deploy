@@ -1,0 +1,120 @@
+{
+  "version": "6.2.0",
+  "contractVersion": "2026-01-23-v7-vault-fix",
+  "etherscanApiKey": "3EV393FS223FE567S4IPY7JXBA4IAPBFX4",
+  "branding": {
+    "bannerLine1": "Made In USA",
+    "bannerLine2": "powered by Rootz"
+  },
+  "networks": {
+    "testnet": {
+      "chainId": 80002,
+      "name": "Polygon Amoy Testnet",
+      "rpc": "https://polygon-amoy.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "explorer": "https://amoy.polygonscan.com",
+      "contractSet": "v5",
+      "contracts": {
+        "factory": "0x18bc605eb1da5cc13ebddf29fe1cb94cd63c3399",
+        "registry": "0x1F8D65Edc480CB98B773d773E772F5cd3aEf85f4",
+        "rateTable": "0x7f1Cec980ca1e95f770aCeC7cfD85F5A416f3078",
+        "identityTemplate": "0x542F001c243E33e7e57387CF299BB7a99ECdCd90",
+        "identityFactory": null,
+        "rootzKey": "0x060348c2D97F0f4D718eA38a2f8c36C710e80a45",
+        "subscriptionManager": "0xa4bA72c01fc6d7CFB6E8197D56E0985611124898"
+      }
+    },
+    "testnet-v4": {
+      "chainId": 80002,
+      "name": "Polygon Amoy Testnet (V4)",
+      "rpc": "https://polygon-amoy.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "explorer": "https://amoy.polygonscan.com",
+      "contractSet": "v4",
+      "contracts": {
+        "factory": "0x9A0b8dE8cC63CD89F1CfEa10A25Fbc7B5B466021",
+        "registry": "0x96e94af29dBB0A81B49246aeC40dDbE6B623c55E",
+        "rateTable": "0xb977A567d2D5eC7D08364133117ffbBD06D1500b",
+        "identityTemplate": null,
+        "identityFactory": null,
+        "rootzKey": null,
+        "subscriptionManager": "0xa4bA72c01fc6d7CFB6E8197D56E0985611124898"
+      }
+    },
+    "joc": {
+      "chainId": 81,
+      "name": "Japan Open Chain V6",
+      "rpc": "https://rpc-1.japanopenchain.org:8545",
+      "explorer": "https://explorer.japanopenchain.org",
+      "contractSet": "v6",
+      "contracts": {
+        "factory": "0xA2a692A7090eBFD07b04ec598ae5A3148F19c19c",
+        "registry": "0x7F74e64b7961c826f4F0B44982555b04DaC70398",
+        "rateTable": "0x47BDbDE0Bb15dCaeC760450E1B956D7F5ccf8D1b",
+        "identityTemplate": null,
+        "identityFactory": "0x6030E147714d085392e4A7c7D5E306067aac3CEd",
+        "rootzKey": "0x060348c2D97F0f4D718eA38a2f8c36C710e80a45",
+        "subscriptionManager": null
+      }
+    },
+    "mainnet-v6": {
+      "chainId": 137,
+      "name": "Polygon Mainnet V6.2",
+      "rpc": "https://polygon-mainnet.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "explorer": "https://polygonscan.com",
+      "contractSet": "v6",
+      "contracts": {
+        "factory": "0xc9092E9B9b152528c7658187176978789cA3AA5a",
+        "registry": "0x446Abfb93AC2f7dB30c28D65B3BBD91A012C9827",
+        "rateTable": "0xe19Be7c794F87dcE0FA5091fff17Dccb5dDBC050",
+        "identityTemplate": "0x738110028FF2C48fC415D27b48Ad958BBB217e2e",
+        "identityFactory": "0xc6361e4780eb16ee8643538376600D97F9E4C9c0",
+        "multiTokenPurchase": "0x9B8deE6A9519c59760AbfcD396510B7CF536ced3",
+        "rootzKey": null,
+        "subscriptionManager": null
+      }
+    },
+    "mainnet-v7": {
+      "chainId": 137,
+      "name": "Polygon Mainnet V7 (Vault Fix)",
+      "rpc": "https://polygon-mainnet.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "explorer": "https://polygonscan.com",
+      "contractSet": "v7",
+      "contracts": {
+        "factory": "0xC683540Ab2A9f017Ea48E044aA74f0b74D9DC4E4",
+        "registry": "0x83B25fDD25516057AaaAf8027464C8bbb2f91d5B",
+        "rateTable": "0x5fb9e4018022e9E40D987C6f2a959cE4027E8b20",
+        "identityTemplate": "0x738110028FF2C48fC415D27b48Ad958BBB217e2e",
+        "identityFactory": "0xc6361e4780eb16ee8643538376600D97F9E4C9c0",
+        "multiTokenPurchase": "0x0D6F37Be6227D0b2C882338924CDc7063fa11346",
+        "rootzKey": null,
+        "subscriptionManager": null
+      }
+    },
+    "production": {
+      "chainId": 137,
+      "name": "Polygon Mainnet (Legacy)",
+      "rpc": "https://polygon-rpc.com",
+      "explorer": "https://polygonscan.com",
+      "contractSet": "v4",
+      "contracts": {
+        "factory": null,
+        "registry": null,
+        "rateTable": null,
+        "identityTemplate": null,
+        "identityFactory": null,
+        "rootzKey": null,
+        "subscriptionManager": null
+      }
+    }
+  },
+  "defaultNetwork": "mainnet-v7",
+  "ipfs": {
+    "gateway": "https://api.pinata.cloud",
+    "apiKey": "b83751052b4ef0d67f28",
+    "secretKey": "daca0104b091c4096c67f153799419916c0d36f6ed89b62ae78938b5a1666ab1"
+  },
+  "gas": {
+    "maxFeePerGas": "750000000000",
+    "maxPriorityFeePerGas": "50000000000",
+    "gasLimit": "1500000"
+  }
+}
