@@ -1,4 +1,4 @@
-import{l as C,i as P,A,t as w}from"./index-DP-RvSxd.js";const V="https://api.etherscan.io/v2/api",E=["https://gateway.pinata.cloud/ipfs/","https://ipfs.io/ipfs/","https://cloudflare-ipfs.com/ipfs/"],T=P("KeyVaultCreated(uint256,address,bytes,bytes,uint256)");async function x(t,e,i){const o=new URL(V);o.searchParams.set("chainid",e.toString()),o.searchParams.set("module","logs"),o.searchParams.set("action","getLogs"),o.searchParams.set("apikey",i),o.searchParams.set("address",t),o.searchParams.set("topic0",T),o.searchParams.set("fromBlock","0"),o.searchParams.set("toBlock","latest");const r=await fetch(o.toString());if(!r.ok)throw new Error(`Etherscan API error: ${r.status}`);const p=await r.json();if(p.status==="0"||typeof p.result=="string"||p.result.length===0)return null;const d=p.result[0],c=parseInt(d.topics[1],16),l="0x"+d.topics[2].slice(-40),s=new A().decode(["bytes","bytes","uint256"],d.data);return{blockNumber:c,creator:l.toLowerCase(),encryptedKeysData:w(s[0]),schemaDefinition:w(s[1]),timestamp:Number(s[2]),txHash:d.transactionHash}}async function D(t){for(const e of E)try{const i=await fetch(e+t,{signal:AbortSignal.timeout(15e3)});if(i.ok)return await i.text()}catch{}throw new Error(`Failed to fetch from IPFS: ${t}`)}async function F(t){const e=new TextEncoder,i=await crypto.subtle.digest("SHA-256",e.encode(t));return"sha256:"+Array.from(new Uint8Array(i)).map(r=>r.toString(16).padStart(2,"0")).join("")}function a(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}function L(t){return t.slice(0,6)+"..."+t.slice(-4)}function N(t){return t<1e12&&(t*=1e3),new Date(t).toLocaleString()}function g(t){const e={pending:"&#8987;",verified:"&#10004;",failed:"&#10008;"};return`<span class="pv-badge ${{pending:"pv-badge-pending",verified:"pv-badge-verified",failed:"pv-badge-failed"}[t]}">${e[t]}</span>`}function O(t){var r;const e=(r=t.topics)!=null&&r.length?`<div class="pv-topics">${t.topics.map(p=>`<span class="pv-topic">${a(p)}</span>`).join("")}</div>`:"",i=`
+import{l as V,i as P,A as E,t as S}from"./index-Bz0zgaJ4.js";const T="https://api.etherscan.io/v2/api",x=["https://gateway.pinata.cloud/ipfs/","https://ipfs.io/ipfs/","https://cloudflare-ipfs.com/ipfs/"],D=P("KeyVaultCreated(uint256,address,bytes,bytes,uint256)");async function F(t,e,i){const o=new URL(T);o.searchParams.set("chainid",e.toString()),o.searchParams.set("module","logs"),o.searchParams.set("action","getLogs"),o.searchParams.set("apikey",i),o.searchParams.set("address",t),o.searchParams.set("topic0",D),o.searchParams.set("fromBlock","0"),o.searchParams.set("toBlock","latest");const s=await fetch(o.toString());if(!s.ok)throw new Error(`Etherscan API error: ${s.status}`);const p=await s.json();if(p.status==="0"||typeof p.result=="string"||p.result.length===0)return null;const d=p.result[0],c=parseInt(d.topics[1],16),l="0x"+d.topics[2].slice(-40),r=new E().decode(["bytes","bytes","uint256"],d.data);return{blockNumber:c,creator:l.toLowerCase(),encryptedKeysData:S(r[0]),schemaDefinition:S(r[1]),timestamp:Number(r[2]),txHash:d.transactionHash}}async function L(t){for(const e of x)try{const i=await fetch(e+t,{signal:AbortSignal.timeout(15e3)});if(i.ok)return await i.text()}catch{}throw new Error(`Failed to fetch from IPFS: ${t}`)}async function N(t){const e=new TextEncoder,i=await crypto.subtle.digest("SHA-256",e.encode(t));return"sha256:"+Array.from(new Uint8Array(i)).map(s=>s.toString(16).padStart(2,"0")).join("")}function a(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}function O(t){return t.slice(0,6)+"..."+t.slice(-4)}function M(t){return t<1e12&&(t*=1e3),new Date(t).toLocaleString()}function g(t){const e={pending:"&#8987;",verified:"&#10004;",failed:"&#10008;"};return`<span class="pv-badge ${{pending:"pv-badge-pending",verified:"pv-badge-verified",failed:"pv-badge-failed"}[t]}">${e[t]}</span>`}function B(t){var s;const e=(s=t.topics)!=null&&s.length?`<div class="pv-topics">${t.topics.map(p=>`<span class="pv-topic">${a(p)}</span>`).join("")}</div>`:"",i=`
     <div class="pv-hashes">
       <h3>Hash Binding</h3>
       ${t.originHash?`<div class="pv-hash-row"><span class="pv-hash-label">Origin Hash</span><code>${a(t.originHash)}</code></div>`:""}
@@ -20,7 +20,7 @@ import{l as C,i as P,A,t as w}from"./index-DP-RvSxd.js";const V="https://api.eth
         ${o}
       </div>
     </div>
-  `}function k(t){let e=a(t);return e=e.replace(/```(\w*)\n([\s\S]*?)```/g,"<pre><code>$2</code></pre>"),e=e.replace(/`([^`]+)`/g,"<code>$1</code>"),e=e.replace(/^#### (.+)$/gm,"<h4>$1</h4>"),e=e.replace(/^### (.+)$/gm,"<h3>$1</h3>"),e=e.replace(/^## (.+)$/gm,"<h2>$1</h2>"),e=e.replace(/^# (.+)$/gm,"<h1>$1</h1>"),e=e.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>"),e=e.replace(/\*(.+?)\*/g,"<em>$1</em>"),e=e.replace(/^- (.+)$/gm,"<li>$1</li>"),e=e.replace(/(<li>.*<\/li>\n?)+/g,"<ul>$&</ul>"),e=e.replace(/^---$/gm,"<hr>"),e=e.replace(/\n\n/g,"</p><p>"),e="<p>"+e+"</p>",e=e.replace(/<p>\s*<\/p>/g,""),e=e.replace(/<p>(<h[1-4]>)/g,"$1"),e=e.replace(/(<\/h[1-4]>)<\/p>/g,"$1"),e=e.replace(/<p>(<pre>)/g,"$1"),e=e.replace(/(<\/pre>)<\/p>/g,"$1"),e=e.replace(/<p>(<ul>)/g,"$1"),e=e.replace(/(<\/ul>)<\/p>/g,"$1"),e=e.replace(/<p>(<hr>)<\/p>/g,"$1"),e}function M(t,e,i,o,r,p,d,c,l){const v={"@context":"https://schema.org","@type":"DigitalDocument",name:"Rootz Public Data Wallet",description:"A cryptographically verified document stored on IPFS with proof of origin recorded on Polygon blockchain.",url:`https://dashboard.rootz.global/#/s/${t}`,encoding:{"@type":"MediaObject",contentUrl:`https://gateway.pinata.cloud/ipfs/${i}`,encodingFormat:"application/json",sha256:e.replace("sha256:","")},publisher:{"@type":"Organization",name:"Rootz",url:"https://rootz.global"},creator:o,datePublished:new Date().toISOString(),identifier:t,additionalProperty:[{"@type":"PropertyValue",name:"blockchain",value:"Polygon Mainnet"},{"@type":"PropertyValue",name:"chainId",value:d},{"@type":"PropertyValue",name:"blockNumber",value:r},{"@type":"PropertyValue",name:"transactionHash",value:p},{"@type":"PropertyValue",name:"contractAddress",value:t},{"@type":"PropertyValue",name:"ipfsCID",value:i},{"@type":"PropertyValue",name:"contentHash",value:e},{"@type":"PropertyValue",name:"hashVerified",value:l}]},s=`
+  `}function k(t){let e=a(t);return e=e.replace(/```(\w*)\n([\s\S]*?)```/g,"<pre><code>$2</code></pre>"),e=e.replace(/`([^`]+)`/g,"<code>$1</code>"),e=e.replace(/^#### (.+)$/gm,"<h4>$1</h4>"),e=e.replace(/^### (.+)$/gm,"<h3>$1</h3>"),e=e.replace(/^## (.+)$/gm,"<h2>$1</h2>"),e=e.replace(/^# (.+)$/gm,"<h1>$1</h1>"),e=e.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>"),e=e.replace(/\*(.+?)\*/g,"<em>$1</em>"),e=e.replace(/^- (.+)$/gm,"<li>$1</li>"),e=e.replace(/(<li>.*<\/li>\n?)+/g,"<ul>$&</ul>"),e=e.replace(/^---$/gm,"<hr>"),e=e.replace(/\n\n/g,"</p><p>"),e="<p>"+e+"</p>",e=e.replace(/<p>\s*<\/p>/g,""),e=e.replace(/<p>(<h[1-4]>)/g,"$1"),e=e.replace(/(<\/h[1-4]>)<\/p>/g,"$1"),e=e.replace(/<p>(<pre>)/g,"$1"),e=e.replace(/(<\/pre>)<\/p>/g,"$1"),e=e.replace(/<p>(<ul>)/g,"$1"),e=e.replace(/(<\/ul>)<\/p>/g,"$1"),e=e.replace(/<p>(<hr>)<\/p>/g,"$1"),e}function z(t,e,i,o,s,p,d,c,l){const v={"@context":"https://schema.org","@type":"DigitalDocument",name:"Rootz Public Data Wallet",description:"A cryptographically verified document stored on IPFS with proof of origin recorded on Polygon blockchain.",url:`https://dashboard.rootz.global/#/s/${t}`,encoding:{"@type":"MediaObject",contentUrl:`https://gateway.pinata.cloud/ipfs/${i}`,encodingFormat:"application/json",sha256:e.replace("sha256:","")},publisher:{"@type":"Organization",name:"Rootz",url:"https://rootz.global"},creator:o,datePublished:new Date().toISOString(),identifier:t,additionalProperty:[{"@type":"PropertyValue",name:"blockchain",value:"Polygon Mainnet"},{"@type":"PropertyValue",name:"chainId",value:d},{"@type":"PropertyValue",name:"blockNumber",value:s},{"@type":"PropertyValue",name:"transactionHash",value:p},{"@type":"PropertyValue",name:"contractAddress",value:t},{"@type":"PropertyValue",name:"ipfsCID",value:i},{"@type":"PropertyValue",name:"contentHash",value:e},{"@type":"PropertyValue",name:"hashVerified",value:l}]},r=`
     <div class="pv-ai-guide">
       <details>
         <summary class="pv-ai-guide-toggle">How to Verify This Document (AI &amp; Human Guide)</summary>
@@ -69,8 +69,8 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
           <pre><code>${a(c)}/address/${a(o)}</code></pre>
 
           <h4>Step 5: Confirm Block Timestamp</h4>
-          <p>The publication timestamp is the block time of block <strong>#${r.toLocaleString()}</strong>:</p>
-          <pre><code>${a(c)}/block/${r}</code></pre>
+          <p>The publication timestamp is the block time of block <strong>#${s.toLocaleString()}</strong>:</p>
+          <pre><code>${a(c)}/block/${s}</code></pre>
 
           <h4>What This Proves</h4>
           <table class="pv-ai-guide-table">
@@ -92,7 +92,7 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
             <li>Compute <code>sha256:</code> + hex(SHA-256(plainContent))</li>
             <li>Compare to on-chain hash: <code>${a(e)}</code></li>
             <li>Verify publisher via PolygonScan: <code>${a(c)}/tx/${a(p)}</code></li>
-            <li>Confirm block #${r.toLocaleString()} timestamp on Polygon (chainId ${d})</li>
+            <li>Confirm block #${s.toLocaleString()} timestamp on Polygon (chainId ${d})</li>
           </ol>
           <p><strong>Result: ${l?"ALL CHECKS PASSED":"HASH MISMATCH DETECTED"}</strong> — Content integrity ${l?"confirmed":"FAILED"}.</p>
 
@@ -104,8 +104,8 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
     </div>
   `;return`
     <script type="application/ld+json">${JSON.stringify(v)}<\/script>
-    ${s}
-  `}function S(t){try{const e=JSON.parse(t);return`<pre class="pv-json">${a(JSON.stringify(e,null,2))}</pre>`}catch{return`<div class="pv-plain-content">${k(t)}</div>`}}async function j(t){var r,p,d;const e=document.getElementById("app")||document.body;e.innerHTML="",e.className="pv-app",e.innerHTML=`
+    ${r}
+  `}function w(t){try{const e=JSON.parse(t);return`<pre class="pv-json">${a(JSON.stringify(e,null,2))}</pre>`}catch{return`<div class="pv-plain-content">${k(t)}</div>`}}async function K(t){var s,p,d;const e=document.getElementById("app")||document.body;e.innerHTML="",e.className="pv-app",e.innerHTML=`
     <div class="pv-container">
       <header class="pv-header">
         <div class="pv-header-content">
@@ -121,14 +121,14 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
         </div>
       </main>
     </div>
-  `;const i=document.getElementById("pv-step"),o=c=>{i&&(i.textContent=c)};try{const c=await C(),l=c.network.chainId,v=c.network.explorer;o("Querying KeyVaultCreated event...");const s=await x(t,l,c.etherscanApiKey);if(!s){e.querySelector(".pv-main").innerHTML=`
+  `;const i=document.getElementById("pv-step"),o=c=>{i&&(i.textContent=c)};try{const c=await V(),l=c.network.chainId,v=c.network.explorer;o("Querying KeyVaultCreated event...");const r=await F(t,l,c.etherscanApiKey);if(!r){e.querySelector(".pv-main").innerHTML=`
         <div class="pv-error">
           <h2>Secret Not Found</h2>
           <p>No KeyVaultCreated event found for <code>${a(t)}</code> on chain ${l}.</p>
           <p>This could mean the secret doesn't exist or hasn't been indexed yet.</p>
           <a href="${v}/address/${t}" target="_blank">View on Explorer</a>
         </div>
-      `;return}o("Parsing key vault data...");let h;try{h=JSON.parse(s.encryptedKeysData)}catch{e.querySelector(".pv-main").innerHTML=`
+      `;return}o("Parsing key vault data...");let h;try{h=JSON.parse(r.encryptedKeysData)}catch{e.querySelector(".pv-main").innerHTML=`
         <div class="pv-error">
           <h2>Parse Error</h2>
           <p>Could not parse KeyVault data. The data may be encrypted (this viewer only supports public secrets).</p>
@@ -141,7 +141,7 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
           <p>Use Rootz Desktop V6 to decrypt, or request a share link from the owner.</p>
           <a href="${v}/address/${t}" target="_blank">View Contract on Explorer</a>
         </div>
-      `;return}o("Fetching content from IPFS...");const y=await D(h.plaintextIPFSHash);o("Verifying content integrity...");let f,m;try{f=JSON.parse(y),m=f.plainContent||y}catch{f={},m=y}const $=await F(m)===h.contentHash;let n=null;try{n=JSON.parse(m)}catch{}let b=null;if((n==null?void 0:n.type)==="document-wallet"||n!=null&&n.content)try{const u=JSON.parse(n.content);(u.type==="document-wallet"||u.aiMarkdown||u.originHash)&&(b=u)}catch{}const H=((r=h.metadata)==null?void 0:r.secretName)||(n==null?void 0:n.name)||"Unnamed Secret",I=((p=h.metadata)==null?void 0:p.createdAt)||s.timestamp;e.innerHTML=`
+      `;return}o("Fetching content from IPFS...");const y=await L(h.plaintextIPFSHash);o("Verifying content integrity...");let f,m;try{f=JSON.parse(y),m=f.plainContent||y}catch{f={},m=y}const H=(await N(m)).replace("sha256:",""),I=h.contentHash.replace("sha256:",""),$=H===I;let n=null;try{n=JSON.parse(m)}catch{}let b=null;if((n==null?void 0:n.type)==="document-wallet"||n!=null&&n.content)try{const u=JSON.parse(n.content);(u.type==="document-wallet"||u.aiMarkdown||u.originHash)&&(b=u)}catch{}const C=((s=h.metadata)==null?void 0:s.secretName)||(n==null?void 0:n.name)||"Unnamed Secret",A=((p=h.metadata)==null?void 0:p.createdAt)||r.timestamp;e.innerHTML=`
       <div class="pv-container">
         <header class="pv-header">
           <div class="pv-header-content">
@@ -151,7 +151,7 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
         </header>
         <main class="pv-main">
           <div class="pv-secret-header">
-            <h2>${a(H)}</h2>
+            <h2>${a(C)}</h2>
             ${n!=null&&n.description?`<p class="pv-description">${a(n.description)}</p>`:""}
             ${(d=n==null?void 0:n.tags)!=null&&d.length?`<div class="pv-tags">${n.tags.map(u=>`<span class="pv-tag">${a(u)}</span>`).join("")}</div>`:""}
           </div>
@@ -168,12 +168,12 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
               <div class="pv-evidence-row">
                 ${g("verified")}
                 <span class="pv-evidence-label">Publisher</span>
-                <a href="${v}/address/${s.creator}" target="_blank" class="pv-evidence-value pv-link">${s.creator}</a>
+                <a href="${v}/address/${r.creator}" target="_blank" class="pv-evidence-value pv-link">${r.creator}</a>
               </div>
               <div class="pv-evidence-row">
                 ${g("verified")}
                 <span class="pv-evidence-label">Block</span>
-                <span class="pv-evidence-value">#${s.blockNumber.toLocaleString()} (${N(I)})</span>
+                <span class="pv-evidence-value">#${r.blockNumber.toLocaleString()} (${M(A)})</span>
               </div>
               <div class="pv-evidence-row">
                 ${g("verified")}
@@ -188,17 +188,17 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
               <div class="pv-evidence-row">
                 ${g("verified")}
                 <span class="pv-evidence-label">Transaction</span>
-                <a href="${v}/tx/${s.txHash}" target="_blank" class="pv-evidence-value pv-link">${L(s.txHash)}</a>
+                <a href="${v}/tx/${r.txHash}" target="_blank" class="pv-evidence-value pv-link">${O(r.txHash)}</a>
               </div>
             </div>
           </div>
 
           <div class="pv-content-section">
             <h3>Content</h3>
-            ${b?O(b):n!=null&&n.content?S(n.content):S(m)}
+            ${b?B(b):n!=null&&n.content?w(n.content):w(m)}
           </div>
 
-          ${M(t,h.contentHash,h.plaintextIPFSHash,s.creator,s.blockNumber,s.txHash,l,v,$)}
+          ${z(t,h.contentHash,h.plaintextIPFSHash,r.creator,r.blockNumber,r.txHash,l,v,$)}
 
           <footer class="pv-footer">
             <p>Verified by <a href="https://rootz.global" target="_blank">Rootz</a> — Document is the address, not a file.</p>
@@ -212,5 +212,5 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
         <p>${a(l)}</p>
         <p>Address: <code>${a(t)}</code></p>
       </div>
-    `}}export{j as renderPublicViewer};
-//# sourceMappingURL=public-viewer-0153Ccvg.js.map
+    `}}export{K as renderPublicViewer};
+//# sourceMappingURL=public-viewer-9tIHUW11.js.map
