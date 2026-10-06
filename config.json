@@ -1,7 +1,6 @@
 {
   "version": "6.2.0",
   "contractVersion": "2026-01-23-v7-vault-fix",
-  "etherscanApiKey": "3EV393FS223FE567S4IPY7JXBA4IAPBFX4",
   "branding": {
     "bannerLine1": "Made In USA",
     "bannerLine2": "powered by Rootz"
@@ -109,7 +108,7 @@
   "defaultNetwork": "mainnet-v7",
   "ipfs": {
     "gateway": "https://gateway.pinata.cloud",
-    "pinEndpoint": "https://dashboard.rootz.global/api/pin",
+    "pinEndpoint": "/api/pin",
     "apiKey": "",
     "secretKey": ""
   },
@@ -117,5 +116,6 @@
     "maxFeePerGas": "750000000000",
     "maxPriorityFeePerGas": "50000000000",
     "gasLimit": "1500000"
-  }
+  },
+  "etherscanApiNote": "Key removed 2026-08-12: config.json is publicly served, so any key here is public. Route Etherscan calls through the server-side proxy instead."
 }
