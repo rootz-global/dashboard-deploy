@@ -10,7 +10,7 @@
     "testnet": {
       "chainId": 80002,
       "name": "Polygon Amoy Testnet",
-      "rpc": "https://polygon-amoy.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "rpc": "https://rpc-amoy.polygon.technology",
       "explorer": "https://amoy.polygonscan.com",
       "contractSet": "v5",
       "contracts": {
@@ -26,7 +26,7 @@
     "testnet-v4": {
       "chainId": 80002,
       "name": "Polygon Amoy Testnet (V4)",
-      "rpc": "https://polygon-amoy.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "rpc": "https://rpc-amoy.polygon.technology",
       "explorer": "https://amoy.polygonscan.com",
       "contractSet": "v4",
       "contracts": {
@@ -58,7 +58,7 @@
     "mainnet-v6": {
       "chainId": 137,
       "name": "Polygon Mainnet V6.2",
-      "rpc": "https://polygon-mainnet.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "rpc": "https://polygon-bor-rpc.publicnode.com",
       "explorer": "https://polygonscan.com",
       "contractSet": "v6",
       "contracts": {
@@ -75,7 +75,7 @@
     "mainnet-v7": {
       "chainId": 137,
       "name": "Polygon Mainnet V7 (Vault Fix)",
-      "rpc": "https://polygon-mainnet.g.alchemy.com/v2/ogwavN925cd9IOc9CCpuC",
+      "rpc": "https://polygon-bor-rpc.publicnode.com",
       "explorer": "https://polygonscan.com",
       "contractSet": "v7",
       "contracts": {
@@ -92,7 +92,7 @@
     "production": {
       "chainId": 137,
       "name": "Polygon Mainnet (Legacy)",
-      "rpc": "https://polygon-rpc.com",
+      "rpc": "https://polygon-bor-rpc.publicnode.com",
       "explorer": "https://polygonscan.com",
       "contractSet": "v4",
       "contracts": {
@@ -108,9 +108,10 @@
   },
   "defaultNetwork": "mainnet-v7",
   "ipfs": {
-    "gateway": "https://api.pinata.cloud",
-    "apiKey": "b83751052b4ef0d67f28",
-    "secretKey": "daca0104b091c4096c67f153799419916c0d36f6ed89b62ae78938b5a1666ab1"
+    "gateway": "https://gateway.pinata.cloud",
+    "pinEndpoint": "https://dashboard.rootz.global/api/pin",
+    "apiKey": "",
+    "secretKey": ""
   },
   "gas": {
     "maxFeePerGas": "750000000000",
