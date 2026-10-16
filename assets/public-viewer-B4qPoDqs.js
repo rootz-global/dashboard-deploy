@@ -213,4 +213,3 @@ curl -s "https://gateway.pinata.cloud/ipfs/${a(i)}" | \\
         <p>Address: <code>${a(t)}</code></p>
       </div>
     `}}export{j as renderPublicViewer};
-//# sourceMappingURL=public-viewer-B4qPoDqs.js.map
